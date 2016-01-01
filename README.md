@@ -1,5 +1,5 @@
 # BorderTimes
-Web API for wait times for entering the **US from Canadian borders**.
+Waiting times for entering the US from Canadian borders served as a RESTful API.
 
 All data is scraped from the official [Government of Canada](http://travel.gc.ca/travelling/border-times-us) website. Wait times are updated *at least once an hour* (per GC).
 
