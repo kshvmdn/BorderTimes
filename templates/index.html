@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block index %}
-	<div data-role="page" id="Home">
-		<div>
-			<h1>CADBorderTimes</h1>
-		</div><!-- header -->
-		<div data-role="content">
-			<h2>Usage</h2>
-			<p>Access the endpoint at <a href="/api"><code>/api</code></a>.</p>
-		</div><!-- content -->
-	</div>
+    <div class="container">
+        <h1>CADBorderTimes <small>An open data API for Canadian border wait times.</small></h1><br/>
+        <p class="lead">
+            Access the full data set at <a href="/api"><code>/api</code></a>.
+            Or retrieve data for a single border at <a href="/api?port=Rainbow Bridge"><code>/api?port_name=</code></a>.
+            Find a list of port names <a href="http://travel.gc.ca/travelling/border-times-us" target="_blank">here</a>.
+		</p>
+    </div>
 {% endblock index %}

@@ -4,15 +4,15 @@ from bs4 import BeautifulSoup as BS
 URL = 'http://travel.gc.ca/travelling/border-times-us'
 
 
-def scrape():
-    return parse(request())
+def scrape(port=None):
+    return parse(request(), port)
 
 
 def request():
     return requests.get(URL)
 
 
-def parse(response):
+def parse(response, requested_port=None):
     soup = BS(response.text, 'html.parser')
     wait_times = {}
     if soup.find('table'):
@@ -34,8 +34,8 @@ def parse(response):
                     'non_commercial': noncommercial_wait
                 }
             }
-    return wait_times
+    return wait_times if requested_port is None else wait_times[requested_port]
 
 if __name__ == '__main__':
-    wait = scrape()
-    print(json.dumps(wait, indent=4))
+    times = scrape('Rainbow Bridge')
+    print(json.dumps(times, indent=2))

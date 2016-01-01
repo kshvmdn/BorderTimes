@@ -13,7 +13,9 @@ def root():
 
 @app.route('/api')
 def api():
-    wait_times = scrape()
+    port_name = request.args.get("port", type=str)
+    wait_times = scrape() if port_name is None or port_name == '' else scrape(port_name)
+
     if wait_times:
         response = jsonify(meta=dict(status=200, message='OK'), data=wait_times)
     else:
@@ -28,4 +30,4 @@ def bad_request(error):
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='127.0.0.1', port=port)
