@@ -21,7 +21,7 @@ def parse(response):
             port_name = port[0].find('strong').string
             port_info = [br.next_sibling for br in port[0].find_all('br')]
             port_cities, update_time = port_info[0].split('/'), port_info[1].strip('Last updated : ')
-            commercial_wait, noncommerical_wait = [x.string for x in port[1:]]
+            commercial_wait, noncommercial_wait = [wait.string for wait in port[1:]]
             wait_times[port_name] = {
                 'port_info': {
                     'port_name': port_name,
@@ -31,7 +31,7 @@ def parse(response):
                 'last_updated': update_time,
                 'wait_times': {
                     'commercial': commercial_wait,
-                    'non-commercial': non_commercial_wait
+                    'non_commercial': noncommercial_wait
                 }
             }
     return wait_times
