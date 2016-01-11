@@ -1,11 +1,13 @@
 # BorderTimes
-Waiting times for entering the US from Canadian borders served as a RESTful API.
+Waiting times for entering the US from Canadian borders served as a web API.
 
 All data is scraped from the official [Government of Canada](http://travel.gc.ca/travelling/border-times-us) website. Wait times are updated *at least once an hour* (per GC).
 
 ## Setup
 
-Fork/clone project, install Python 3 requirements (`pip3 install -r ./requirements.txt`).
+Requires self-hosting.
+
+Fork/clone project, install Python 3 requirements w/ `pip3 install -r ./requirements.txt`.
 
 Run `border_times.py`. 
 
