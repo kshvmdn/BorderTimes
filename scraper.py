@@ -7,14 +7,15 @@ URL = 'http://travel.gc.ca/travelling/border-times-us'
 
 
 def scrape(port=None):
-    return parse(request(), port)
+    return parse(port)
 
 
-def request():
-    return requests.get(URL)
+def request(url):
+    return requests.get(url)
 
 
 def parse(response, requested_port=None):
+    response = request(URL)
     soup = BeautifulSoup(response.text, 'html.parser')
     wait_times = OrderedDict()
     if not soup.find('table'):
